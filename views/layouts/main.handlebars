@@ -17,18 +17,25 @@
      <li>
        Dashboard  
      </li>
+       {{#if logged_in}}
      <li>
-      Log out
+     <button class="btn" id="logout">logout</button>
      </li>
+      {{/if}}
      </ul>
     </nav>
     </header>
+    <main class="container container-fluid mt-5">
+     {{{ body }}}
+
+    </main>
+<footer>
 
 
+</footer>
 
-
-
-
-    
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}} 
 </body>
 </html>
