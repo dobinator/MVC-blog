@@ -8,11 +8,11 @@ Post.init(
     type: DataTypes.INTEGER,
     allowNull: false, 
     primaryKey: true,
-    autoIncrement: true
+    autoIncrement: true,
    },
     title: {
     type: DataTypes.STRING,
-    allowNull:false
+    allowNull:false,
     },
     
     content: {
@@ -24,7 +24,7 @@ Post.init(
       type: DataTypes.INTEGER,
       references: { 
         model: "user",
-        key:"id"
+        key:"id",
        }
     },
     
