@@ -1,17 +1,19 @@
 const router = require('express').Router();
-const { User } = require('../models');
+const { User, Post, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+    const userData = await Post.findAll({
+      // attributes: { exclude: ['password'] },
+      // order: [['name', 'ASC']],
+  include: [User]
+
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('all-posts', {
       users,
       logged_in: req.session.logged_in,
     });
@@ -20,13 +22,26 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/');
-    return;
-  }
+router.get('/post/:id', async (req, res) => {
+  // if (req.session.logged_in) {
+  //   res.redirect('/');
+  //   return;
+  // }
 
-  res.render('login');
+  // res.render('login');
+  try{
+ const data = await Post.findByPk(req.params.id, {
+   include: [User,{
+     model: Comment, include: [User]
+   }]
+ })
+if (data === true){
+  const post = data.get({ plain:true })
+  res.render( "single-post", { post})
+} else{
+  res.end()
+}
+  }catch (err){res.json(err)}
 });
 
 module.exports = router;
