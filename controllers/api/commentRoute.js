@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const withAuth = require ('../../utils/auth')
 const { Comment, Post} = require ("../../models");
 
 router.get ('/', (req, res) => {
@@ -15,7 +16,7 @@ include:[Post]
 
 // })
 
-router.post('/', (req, res)=>{
+router.post('/', withAuth,(req, res)=>{
     Comment.create(req, body)
     .then((CommentData)=> {
      res.json (CommentData);
@@ -33,7 +34,7 @@ Comment.update (req.body,{
 });
 });
 
-router.delete ('/:id', (req, res) => {
+router.delete ('/:id',withAuth, (req, res) => {
 Comment.destroy ({
     where:{
         id:req.params.id
