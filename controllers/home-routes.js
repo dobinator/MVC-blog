@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { User, Post, Comment} = require('../models');
-const withAuth = require('../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
+
+router.get('/', async (req, res) => {
   try {
     const userData = await Post.findAll({
       // attributes: { exclude: ['password'] },
@@ -15,7 +15,6 @@ router.get('/', withAuth, async (req, res) => {
 
     res.render('all-posts', {
       users,
-      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -43,5 +42,27 @@ if (data === true){
 }
   }catch (err){res.json(err)}
 });
+
+
+router.get ('/login', (req, res) =>{
+if ( req.session.loggedIn === true){
+  res.redirect("/")
+  return
+}
+res.render ("login")
+})
+
+
+
+router.get ('/signup', (req, res) =>{
+  if ( req.session.loggedIn === true){
+    res.redirect("/")
+    return
+  }
+  res.render ("signup")
+  });
+
+
+
 
 module.exports = router;

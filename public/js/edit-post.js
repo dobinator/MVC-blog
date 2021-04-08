@@ -26,16 +26,8 @@ const editFormHandler = async(event)=>{
       alert('Failed to edit post');
     }
 
-
+  }
   
-    
-    
-    
-
-
-
-
-    
     document
     .querySelector('.edit-post-form')
     .addEventListener('submit', newFormHandler);

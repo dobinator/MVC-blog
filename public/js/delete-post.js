@@ -3,7 +3,7 @@
         const post = window.location.toString().split ('/')[
             window.location.toString().split('/').length- 1
         ];
-          const response = await fetch(`/api/projects/${post}`, {
+          const response = await fetch(`/api/posts/${post}`, {
             method: 'DELETE',
           });
       

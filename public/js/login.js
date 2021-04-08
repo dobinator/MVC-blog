@@ -3,12 +3,9 @@
     const username = document.querySelector('#name-signup')
     const email = document.querySelector('#email-signup')
     const password = document.querySelector('#password-signup')
-
-
   }
   
-  
-  
+
   
   const loginFormHandler = async (event) => {
     event.preventDefault();

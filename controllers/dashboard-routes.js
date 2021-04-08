@@ -9,26 +9,28 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
-      attributes: ["id", "title", "body", "created_at"],
-      include: [
-        {
-          model: Comment,
-          User,
-          attributes: [
-            "id",
-            "body",
-            "user_id",
-            "created_at",
-            "username",
-          ],
-        },
-      ],
+      // attributes: ["id", "title", "body", "created_at"],
+      // include: [
+      //   {
+      //     model: Comment,
+      //     User,
+      //     attributes: [
+      //       "id",
+      //       "body",
+      //       "user_id",
+      //       "created_at",
+      //       "username",
+      //     ],
+      //   },
+      // ],
     });
 
     const posts = postData.map((post) => post.get({ plain: true }));
-    res.render("dashboard", {
+    res.render("all-post", {
+      layout: "dashboard",
       posts,
-      logged_in: true,
+
+      // logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -37,29 +39,14 @@ router.get("/", withAuth, async (req, res) => {
 
 router.get("edit/:id", withAuth, async (req, res) => {
   try {
-    const postId = await Post.findByPk({
-      where: {
-        id: req.params.id,
-      },
-      attributes: ["id",
-                  "title",
-                   "body", 
-                  "created_at"],
-      include: [
-        {
-          model: Comment,User,
-          attributes: ["id","body", "user_id","created_at", "username",],
-        },
-      ],
-    });
-
-    postId => {
+    const postId = await Post.findByPk( req.params.id);
+   
         if (!postId){
             res.status (404).json({ message: "No post found"});
         }
-    }
+    
     const post = postId.get({ plain: true});
-    res.render('edit-post', {post, logged_in: true});
+    res.render('edit-post', {layout: "dashboard", post})
     }
 catch(err){
     console.log(err);
@@ -68,7 +55,9 @@ catch(err){
 });
 
 router.get('/new', async (req,res)=> {
-    res.render('newPost');
+    res.render('new-post', {
+      layout: "dashboard",
+    });
 });
 
 module.exports = router; 
