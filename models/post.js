@@ -15,22 +15,16 @@ Post.init(
     type: DataTypes.STRING,
     allowNull:false,
     },
-    body:  DataTypes.STRING,
-
-    // content: {
-    //   type: DataTypes.STRING,
-    //   allowNull:false,
-      
-    // },
-    // user_id:{
+    // user_id: {
     //   type: DataTypes.INTEGER,
-    //   references: { 
-    //     model: "user",
-    //     key:"id",
-    //    }
-    // },
-    
+    //   allowNull: false,
+    //   reference: {
+    //     model: 'user',
+    //     key:'id'
+    //   }
 
+    // }
+    body:  DataTypes.STRING,
 },
 {
   sequelize,
