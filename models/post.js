@@ -24,7 +24,7 @@ Post.init(
     //   }
 
     // }
-    body:  DataTypes.STRING,
+    body:  DataTypes.TEXT,
 },
 {
   sequelize,
