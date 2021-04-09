@@ -9,42 +9,13 @@ Comment.init(
     body: {
       type: DataTypes.TEXT,
       allowNull: false, 
-    }
-
-  // id: {
-  //  type: DataTypes.INTEGER,
-  //  allowNull: false, 
-  //  primaryKey: true,
-  //  autoIncrement: true
-  // },
-  //  comment_name: {
-  //   type: DataTypes.STRING,
-  //   allowNull:false
-  //  },
-  //  user_id:{
-  // type: DataTypes.INTEGER,
-  // allowNull: false,
-  // references: {
-  //   model: 'User',
-  //   key:'id',
-  // },
-  // post_id: {
-  // type: DataTypes.INTEGER,
-  // allowNull: false,
-  // references: {
-  //   model: 'post',
-  //   key: 'id'
-  // }
-  // },
-
-  //  },
+    },
   },
   {
     sequelize,
-    
-    // freezeTableName: true,
-    // underscored: true,
-    // modelName: 'comment',
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment',
   }
 );
 
