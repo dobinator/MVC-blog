@@ -1,6 +1,6 @@
 const { Post } = require('../models');
 
-const postSeeds = [
+const postData = [
 {
     title: "New UK regulator set to curb big tech's power over news publishers",
     post_content:" Britain's news regulator for tech giants Facebook and Google launches on Wednesday with the initial remit to see if a code of conduct could improve the balance of power between the platforms and the news publishers.",
@@ -34,7 +34,7 @@ const postSeeds = [
 ]
 
 
-const postSeeds = () => Post.bulkCreate(postSeeds); 
+const postSeeds = () => Post.bulkCreate(postData); 
 
 module.exports = postSeeds;
 
