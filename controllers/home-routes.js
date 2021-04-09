@@ -12,9 +12,9 @@ router.get('/', async (req, res) => {
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
-
-    res.render('all-posts', {
-      users,
+   console.log (users)
+    res.render('home', {
+      posts: users,
     });
   } catch (err) {
     res.status(500).json(err);
