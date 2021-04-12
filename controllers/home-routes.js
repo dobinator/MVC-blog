@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment} = require('../models');
 
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth,async (req, res) => {
   try {
     const userData = await Post.findAll({
       // attributes: { exclude: ['password'] },
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     });
 
     const users = userData.map((project) => project.get({ plain: true }));
-   console.log (users)
+
     res.render('home', {
       posts: users,
     });

@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const withAuth = require ('../../utils/auth.js')
+const withAuth = require ('../../utils/auth')
 // const sequelize = require ('../../config/connection');
 const { Post } = require ('../../models');
 const { route } = require('./comment-routes');
@@ -7,7 +7,7 @@ const { route } = require('./comment-routes');
 
 //creating a post
 router.post('/', withAuth, (req, res)=> {
-    Post.create ({...req.body, userId: req.session.user_id
+    Post.create ({...req.body, userId: req.session.userId
     }).then((CommentData)=> {
         res.json (CommentData);
        }).catch (err=>{
