@@ -17,7 +17,7 @@ const { Comment} = require ("../../models");
 // })
 
 router.post('/', withAuth,(req, res)=>{
-    Comment.create({...req.body, user_id: req.session.user_id})
+    Comment.create({...req.body, userId: req.session.userId})
     .then((CommentData)=> {
      res.json (CommentData);
     }).catch (err=>{
