@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-const withAuth = require('/..utils/auth.js');
+const withAuth = require('/..utils/auth');
 
 //expects email &password
 router.post('/login', async (req, res) => {
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     }
 // if the email and password are correct
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.userId = userData.id;
       req.session.logged_in = true;
       
       res.json({ user: userData, message: 'You are now logged in!' });
@@ -49,7 +49,7 @@ router.put('/', withAuth, async (req, res)=> {
 try {
 const updatedUserData = await User.update(re.body, {
   where: {
-    id: req.session.user_id,
+    id: req.session.userId,
   }
 })
 res.json(updatedUserData)
