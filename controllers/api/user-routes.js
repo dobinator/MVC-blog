@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../..utils/withAuth')
 
 //expects email &password
 router.post('/login', async (req, res) => {
@@ -43,5 +44,18 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+router.put('/', withAuth, async (req, res)=> {
+try {
+const updatedUserData = await User.update(re.body, {
+  where: {
+    id: req.session.user_id,
+  }
+})
+res.json(updatedUserData)
+} catch (err){
+  res.status(500).json(err.errors[0].message)
+}
+})
 
 module.exports = router;

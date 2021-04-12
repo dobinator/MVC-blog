@@ -1,20 +1,36 @@
-{{> post-info post}}
+<div class="container my-5">
 
-{{#if loggedIn}}
-<div class="card">
-    <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
-
-        <label class="form-label">Comment</label>
-        <input id="comment" name="comment-body" class="form-input" />
-
-        <button type="submit" class="btn">Submit</button>
+    <div class="d-flex flex-column justify-content-center align-items-center col-12 col-md-9">
+        <h4>{{post-id.title}}</h4>
+        <p>
+            {{post-id.body}}
+        </p>
+        <p>- {{postData.userName}}</p>
+    </div>
+    {{#if own}}
+    {{postData.id}}
+    <a href="/update/post/{{post-id.id}}"> <button class="my-3 col-6 btn btn-dark">Update Post</button></a>
+    <button class="my-3 col-6 btn btn-danger">Delete Post</button>
+    {{/if}}
+</div>
+{{#each post-id.commentArr}}
+{{> comments}}
+{{/each}}
+<div class="row"><button id="addComment" class="btn btn-dark"> Add your own Comment</button> </div>
+<div class="row">
+    <form id="newIdForm" hidden>
+        <div class="form-group">
+            <label for="comment-post">Comment</label>
+            <input type="text" id="comment-post">
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
     </form>
 </div>
-{{/if}}
 
-{{> comments post.comments}}
+</div>
 
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
+<script src="/js/comment.js"></script>
+{{#if own}}
+<script src='/js/deletePost.js'></script>
 {{/if}}
