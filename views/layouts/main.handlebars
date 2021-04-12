@@ -1,44 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Blog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@1&display=swap"
-      rel="stylesheet"/>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" 
-      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="/public/style.css" />
-  </head>
 
-  <body>
-    <header>
-        <div class= "jumbotron jumbrotron alert-dark"></div>
-        <div class ="container"></div>
-      <h1>The Back Channel</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@1&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="/public/style.css" />
+</head>
+
+<body>
+
+  <nav class="d-flex justify-content-between navbar-expand-md navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" href="/">
+      <h1 class="p-3">The Back Channel</h1>
+    </a>
+    </button>
+
+
+
+    <div class="p-3" id="navbarSupportContent">
+      <ul class="navbar-nav max auto">
+        {{#if user_id}}
+        <li class="nav-item active">
+          <a class="nav-link" id="logout">Logout</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/profile/{{user_id}}">Profile</a>
+        </li>
+        {{else}}
+        <li class="nav-item active">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/signup">Sign-up</a>
+        </li>
+        {{/if}}
+        <li class="nav-item active">
+          <a class="nav-link" href="/post"> Make a Post</a>
+        </li>
+      </ul>
+
+
     </div>
-    </header>
 
-<!---Only display the logout button if the user is logged in-->
 
-    {{#if logged_in}}
-    <div class ="container-fluid"></div>
-    <button class = "btn btn-primary display-5" id= "logout">Logout</button>
-    </div>
-    {{/if}}
+  </nav>
+  {{{ body }}}
+  </main>
 
-    <main class="container container-fluid mt-5">
-        {{{ body }}}
-    </main>
 
-    <footer></footer>
-    <h4>Thanks for visiting The Back Channel!</h4>
-    {{#if logged_in}}
-    <script src="/js/logout.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
-    {{/if}}
-  </body>
 
- </html>
+  <footer class="container text-center">
+  <h5>Thanks for visiting The Back Channel!</h5>
+  </footer>
+  <script src="/js/logout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+    integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+    crossorigin="anonymous"></script>
+  {{#if logged_in}}
+  <script src="js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>

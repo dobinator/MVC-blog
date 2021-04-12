@@ -2,8 +2,8 @@ const signupFormHandler= async(event)=>{
     // stops page from reloading 
     event.preventDefault();
 
-    const username = document.querySelector('#username').value;
-    const password = document.querySelector('#password').value;
+    const username = document.querySelector('#username').value.trim();
+    const password = document.querySelector('#password').value.trim();
 
 if (title && content){
     const response = await fetch ('/api/users', {
