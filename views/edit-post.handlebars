@@ -1,14 +1,28 @@
-<div class="card">
-    <h3 class="card-header">Edit Post</h3>
-    <form class="card-body edit-post-form">
-        <label for="post-title" class="form-label">Title</label>
-        <input name="post-title" type="text" value="{{post.title}}" class="form-input" />
-        <label class="form-label" for="content">Content</label>
-        <input name="content" type="text" value="{{post.content}}" class="form-input" />
-        <button type="submit" class="btn">Update Post</button>
-        <button type="button" class="delete-post-btn btn">Delete Post</button>
-    </form>
-</div>
+<div>
+    <h2 class= "title is-4">Edit a Post</h2>
+  </div>
+  <div class= "block">
+    <div class="field">
+      <label class="label">Title</label>
+        <input class="post-title" type="text" id="post-title" placeholder="Text input" value="{{post.title}}">
+      </div>
+    </div>
+
+        <div class= "block">
+          <div class="field">
+           <label class="label">Content</label>
+              <input name="content" type="text" value="{{post.content}}" class="form-input" />
+          </div>
+        </div>
+
+
+         <button class="button is-info" type="submit">Update Post</button>
+        <button  class="button is-info" type="button">Delete Post</button>
+    </div>
+  </div>
+
+
+
 
 
 <script src="/js/edit-post.js"></script>

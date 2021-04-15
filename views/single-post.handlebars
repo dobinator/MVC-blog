@@ -1,6 +1,6 @@
-<div class="container my-5">
+ <div class="container">
 
-    <div class="d-flex flex-column justify-content-center align-items-center col-12 col-md-9">
+    <div class="block"></div>
         <h4>{{post-id.title}}</h4>
         <p>
             {{post-id.body}}
@@ -9,14 +9,14 @@
     </div>
     {{#if own}}
     {{postData.id}}
-    <a href="/update/post/{{post-id.id}}"> <button class="my-3 col-6 btn btn-dark">Update Post</button></a>
-    <button class="my-3 col-6 btn btn-danger">Delete Post</button>
+    <a href="/update/post/{{post-id.id}}"> <button class="button is-info">Update Post</button></a>
+    <button class="button is-info">Delete Post</button>
     {{/if}}
 </div>
 {{#each post-id.commentArr}}
 {{> comments}}
 {{/each}}
-<div class="row"><button id="addComment" class="btn btn-dark"> Add your own Comment</button> </div>
+<div class="row"><button id="addComment" class="button is-info"> Add your own Comment</button> </div>
 <div class="row">
     <form id="newIdForm" hidden>
         <div class="form-group">
@@ -24,13 +24,14 @@
             <input type="text" id="comment-post">
             <textarea id="comment" name="comment"></textarea>
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <button type="submit" class="button is-info">Submit</button>
     </form>
 </div>
-
+</div>
 </div>
 
 <script src="/js/comment.js"></script>
 {{#if own}}
 <script src='/js/deletePost.js'></script>
 {{/if}}
+
