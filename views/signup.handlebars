@@ -1,27 +1,31 @@
 <section>
-    <div class="block">
+  <div class= "container has-text-centered">
+    <div class="block is-flex-direction-row">
       <form class="login-form text center" id="signupform">
-        <h1 class="">Sign-up</h1>
-        <div class="form-group">
-          <input class="text" type="form control" placeholder="Username" id="Username">
-        </div>
-  
-        <div class="form-group">
-          <label class="password" class="form-control" placeholder="Password" id="Password">
-            <button type="submit" class="button is-link">Sign-up</button>
+    <h2 class= "title is-4">SIGNUP</h2>
+
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="button is-link" type="submit">signup</button>
+      </div>
+    </form>
+  </div>
             <p class="">Already have an account?<a href="/login">Login</a></p>
-  
-            <label class="display-7" for="name">Username:</label>
-            <input class="form-input" type="username" id="username" />
-        </div>
-        <div class="form-group">
-          <label class="display-7" for="password-login">Password:</label>
-          <input class="form-input" type="password" id="password" />
-        </div>
-        <div class="form-group">
-          <button class="button is-link" type="submit" id="signup">Sign Up</button>
-        </div>
+
       </form>
+      </div>
       </div>
   </section>
   <script src="/js/signup.js"></script>
