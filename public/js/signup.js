@@ -4,14 +4,13 @@ const signupFormHandler= async(event)=>{
     event.preventDefault();
 
     const username = document.querySelector('#username').value.trim();
-    const password = document.querySelector('#password').value.trim();
     const password = document.querySelector('#password-signup').value.trim(); 
 
 if (!username && password){
     alert('You must enter both a username and password')
     return;
 }
-    const response = await fetch ('/api/users', {
+    const response = await fetch ('/api/user/', {
        method: "POST", 
        body: JSON.stringify({username, password}),
        headers: {"Content-Type": "application/json"}
@@ -25,8 +24,5 @@ if (!username && password){
     }
 }
    
-
-
-const signForm = document.querySelector ("#signup");
 
 signForm.addEventListener("submit", signupFormHandler); 
