@@ -7,7 +7,7 @@ const { route } = require('./comment-routes');
 
 //creating a post
 router.post('/', withAuth, (req, res)=> {
-    Post.create ({...req.body, userId: req.session.userId
+    Post.create ({...req.body, user_id: req.session.userId
     }).then((CommentData)=> {
         res.json (CommentData);
        }).catch (err=>{
@@ -15,7 +15,6 @@ router.post('/', withAuth, (req, res)=> {
        })
 
 })
-
 
 
 // updating a post
