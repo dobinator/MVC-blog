@@ -1,16 +1,44 @@
-<div class = "container has-text-centered">
-<div class="block">
-    <h3 class="title is-4">Create New Post</h3>
-    <form class="card-body new-post-form" id="new-post">
-        <label for="post-title" class="form-label">Title</label>
-        <input type="text" id="post-title" name="post-title" class="form-input" />
-
-
-        <label class="form-label" for="body">Body</label>
-        <textarea id="post-content" name="body" class="form-input" ></textarea>
-
-        <button type="submit" class="btn">Create</button>
-    </form>
+<div class="container has-text-centered"id ="new-post">
+    <div class="block">
+        <h3 class="title is-4">Create New Post</h3>
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Title</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <input class="input is-link" id = "post-title" type="text" placeholder="title of post">
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label">Body</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <textarea class="textarea" id = "post-content" name= "body" placeholder="Enter your post article here"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-link" id ="submit">
+         Submit
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 <script src="/js/add-post.js"></script>

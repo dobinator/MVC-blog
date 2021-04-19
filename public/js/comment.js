@@ -2,7 +2,7 @@ const commentFormHandler= async(event)=>{
     // stops page from reloading 
     event.preventDefault();
 
-    const id = document.querySelector('input [name = "post-id"]').value;
+    const id = document.querySelector('input [name = "postId"]').value;
     const comment = document.querySelector('textarea [name= "comment"]').value;
 
 if (id && comment){

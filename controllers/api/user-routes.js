@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password, please try again' });
+        .json({ message: 'Incorrect user or password, please try again' });
       return;
     }
 // if the email and password are correct
