@@ -1,6 +1,6 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = require('../config/connection.js');
+const sequelize = require("../config/connection.js");
 
 class Comment extends Model {}
 
@@ -8,16 +8,14 @@ Comment.init(
   {
     body: {
       type: DataTypes.TEXT,
-      allowNull: false, 
+      allowNull: false,
     },
   },
   {
     sequelize,
     freezeTableName: true,
-    underscored: true,
-    modelName: 'comment',
+    modelName: "comment",
   }
 );
-
 
 module.exports = Comment;
