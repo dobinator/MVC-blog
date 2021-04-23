@@ -12,24 +12,23 @@
     <title>Tech Blog</title>
 </head>
 <body>
-    <nav class="nav-start" role="navigation" aria-label="main navigation">
+    <nav class="nav-start has-background-dark" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <a class="navbar-item"href="/" >
-          <h1 class="title is-2">The Back Channel</h1>
+          <h1 class="title is-2 has-text-grey-lighter">The Back Channel</h1>
         </a>
-            <a class="navbar-item" href="/dashboard/new">Create</a>
-             <a class="navbar-item" href="/dashboard/edit">Edit</a>
-              <a class="navbar-item" href="">Comment</a>
-          
-      
-      
+          {{#if userId}}
+            <a class="navbar-item has-text-grey-lighter" href="/dashboard/new">Create</a>
+             <a class="navbar-item has-text-grey-lighter" href="/dashboard/edit">Edit</a>
+              <a class="navbar-item has-text-grey-lighter" href="">Comment</a>
+         {{else}}     
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
                 <a class="button is-link is-outlined" href="/signup"><strong>Sign up</strong></a>
                 <a class="button is-link is-outlined" href="/login">Login</a>
                <a class="button is-link is-outlined" id= "logout">Log out</a>
-                 
+                    {{/if}}
               </div>
             </div>
           </div>
@@ -39,7 +38,7 @@
 {{{ body }}}
 </main>
 <footer class= "footer">
-    <div class= "content has-text-centered">
+    <div class= "content has-text-centered has-background-dark has-text-grey-lighter">
 <p>Thanks for visiting the Back Channel</p>
     </div>
 </footer>
@@ -47,32 +46,7 @@
 {{#if logged_in}}
 <script src="/js/logout.js"></script>
 {{/if}}
+
 </body>
 </html>
 
- {{!-- <div>
-      <h2 class= "title is-4">Create a Post</h2>
-    </div>
-    <div class= "block">
-      <div class="field">
-        <label class="label">Title</label>
-        <div class="control">
-          <input class="input" type="text" id="post-title" placeholder="Text input">
-        </div>
-      </div>
-    </div>
-</div>
-    <div class= "block">
-      <div class="field">
-        <label class="label">Content</label>
-        <div class="control">
-          <textarea class="post-content" placeholder="post-content"></textarea>
-        </div>
-      </div>
-      </div>
-
-      <button type= "submit" class="button is-link is-light">Create</button>
-    </div>
-   </div>
-</div>
-</div> --}}
