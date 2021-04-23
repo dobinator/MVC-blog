@@ -1,19 +1,19 @@
  <div class="container has-text-centered">
 
     <div class="block"></div>
-        <h4>{{post-id.title}}</h4>
+        <h4>{{postId.title}}</h4>
         <p>
-            {{post-id.body}}
+            {{postId.body}}
         </p>
-        <p>- {{postData.userName}}</p>
+        <p>- {{postData.username}}</p>
     </div>
     {{#if own}}
     {{postData.id}}
-    <a href="/update/post/{{post-id.id}}"> <button class="button is-info">Update Post</button></a>
+    <a href="/update/post/{{postId.id}}"> <button class="button is-info">Update Post</button></a>
     <button class="button is-info">Delete Post</button>
     {{/if}}
 </div>
-{{#each post-id.commentArr}}
+{{#each postId.comment}}
 {{> comments}}
 {{/each}}
 <div class="row"><button id="addComment" class="button is-info"> Add your own Comment</button> </div>

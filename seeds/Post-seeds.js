@@ -22,7 +22,7 @@ const postData = [
 {
     //tool to check Facebook data breach
     title: "Tool checks phone numbers from Facebook data breach",
-    body:"People can now enter their phone numbers into a website to see if they appear in a recent Facebook data breach. Details of more than 530 million people were leaked in a database online, l;argely consisting of mobile numbers.",
+    body:"People can now enter their phone numbers into a website to see if they appear in a recent Facebook data breach. Details of more than 530 million people were leaked in a database online, largely consisting of mobile numbers.",
     userId: 4,
 },
 {
