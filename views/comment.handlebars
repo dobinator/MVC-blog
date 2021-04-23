@@ -1,18 +1,3 @@
- <div class="container has-text-centered">
-
-    <div class="block"></div>
-        <h4>{{postId.title}}</h4>
-        <p>
-            {{postId.body}}
-        </p>
-        <p>- {{postData.username}}</p>
-    </div>
-    {{#if own}}
-    {{postData.id}}
-    <a href="/update/post/{{postId.id}}"> <button class="button is-info">Update Post</button></a>
-    <button class="button is-info">Delete Post</button>
-    {{/if}}
-</div>
 {{#each postId.comment}}
 {{> comments}}
 {{/each}}
@@ -32,6 +17,3 @@
 
 <script src="/js/comment.js"></script>
 {{#if own}}
-<script src='/js/deletePost.js'></script>
-{{/if}}
-
