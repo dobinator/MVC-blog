@@ -1,26 +1,26 @@
-<div class="container has-text-centered"id ="edit-post-form">
-    <div class="block">
-        <h3 class="title is-4">Edit a Post</h3>
-<div class="field is-horizontal">
-  <div class="field-label is-normal"id="post-title">
-    <label class="label">Title</label>
-    <input class="post-title" type="text" id="post-title" placeholder="Text input" value="{{post.title}}">
-  </div>
+<div class="container has-text-centered" id="edit-post-form">
+  <div class="block">
+    <h3 class="title is-4">Edit a Post</h3>
+    <div class="field is-horizontal">
+      <div class="field-label is-normal" id="post-title">
+        <label class="label">Title</label>
+        <input class="post-title" type="text" id="post-title" placeholder="Text input" value="{{post.title}}">
+      </div>
 
-        <div class= "field- block">
-          <div class="field" id="post-content">
-           <label class="label">Body</label>
-              <textarea name="content" type="text"id="post-content"  value="{{post.content}}" class="form-input" />
-          </div>
+      <div class="field- block">
+        <div class="field" id="post-content">
+          <label class="label">Body</label>
+          <textarea name="content" type="text" id="post-content" value="{{post.content}}" class="form-input" />
         </div>
-        </div>
-
-         <button class="button is-info" type="submit">Update Post</button>
-        <button  class="button is-danger" type="submit">Delete Post</button>
+      </div>
     </div>
-  </div>
 
- 
+    <button class="button is-info" type="submit">Update Post</button>
+    <button class="button is-danger" type="submit">Delete Post</button>
+  </div>
+</div>
+
+
 
 <script src="/js/edit-post.js"></script>
 <script src="/js/delete-post.js"></script>
